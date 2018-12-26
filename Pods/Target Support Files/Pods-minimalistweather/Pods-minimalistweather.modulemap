@@ -1,0 +1,6 @@
+framework module Pods_minimalistweather {
+  umbrella header "Pods-minimalistweather-umbrella.h"
+
+  export *
+  module * { export * }
+}
