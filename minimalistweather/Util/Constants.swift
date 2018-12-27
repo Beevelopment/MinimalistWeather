@@ -22,7 +22,7 @@ let thunderStormImgOne = ["proximity thunderstrorm", "thunderstorm"]
 let thunderStormImgTwo = ["thunderstorm with light rain", "thunderstorm with rain"]
 let cloudsImgOne = ["broken clouds", "overcast clouds"]
 let cloudImgTwo = ["few clouds", "scattered clouds"]
-let clearImgOne = ["sky is clear"]
+let clearImgOne = ["sky is clear", "clear sky"]
 let snowImgOne = ["light snow", "light shower sleet", "snow"]
 let mistImgOne = ["mist", "smoke", "haze", "dust", "fog", "sand"]
 

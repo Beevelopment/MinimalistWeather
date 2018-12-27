@@ -35,6 +35,7 @@ class CurrentWeatherModel {
     
     func downloadWeatherDetails(url: String, completed: @escaping DownloadComplete) {
         guard let url = URL(string: url) else { return }
+        print("Carl: Url: \(url)")
         Alamofire.request(url).responseJSON { response in
             let result = response.result
             
@@ -42,10 +43,12 @@ class CurrentWeatherModel {
 //                city name
                 guard let name = dict["name"] as? String else { return }
                 self._cityName = name.capitalized
+                print("Carl: weather city \(name)")
+                
 //                weather type
                 guard let weather = dict["weather"] as? [Dictionary<String, AnyObject>] else { return }
                 guard let main = weather[0]["description"] as? String else { return }
-                self._weatherType = main
+                self._weatherType = main.lowercased()
                 
                 print("Carl: weather main \(main)")
 //                current temp

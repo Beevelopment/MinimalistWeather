@@ -12,7 +12,7 @@ class Location {
     static var sharedInstance = Location()
     private init () {}
     
-    var LAT: Double!
-    var LON: Double!
+    var LAT: Double?
+    var LON: Double?
 }
 

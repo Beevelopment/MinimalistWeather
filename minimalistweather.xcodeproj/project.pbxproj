@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		597A12D021CFDDBD00D9AC22 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597A12CF21CFDDBD00D9AC22 /* Location.swift */; };
+		59C783AF21D4F25E00F244BA /* SearchLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C783AE21D4F25E00F244BA /* SearchLocationCell.swift */; };
 		59FEC08D217C717000748882 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FEC08C217C717000748882 /* AppDelegate.swift */; };
 		59FEC08F217C717000748882 /* WeatherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FEC08E217C717000748882 /* WeatherController.swift */; };
 		59FEC092217C717000748882 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59FEC090217C717000748882 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		597A12CF21CFDDBD00D9AC22 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		59C783AE21D4F25E00F244BA /* SearchLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationCell.swift; sourceTree = "<group>"; };
 		59FEC089217C717000748882 /* minimalistweather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = minimalistweather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59FEC08C217C717000748882 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59FEC08E217C717000748882 /* WeatherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				59FEC0A6217C840300748882 /* WeatherCell.swift */,
+				59C783AE21D4F25E00F244BA /* SearchLocationCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				59FEC08F217C717000748882 /* WeatherController.swift in Sources */,
 				597A12D021CFDDBD00D9AC22 /* Location.swift in Sources */,
 				59FEC0A9217C917E00748882 /* CurrentWeatherModel.swift in Sources */,
+				59C783AF21D4F25E00F244BA /* SearchLocationCell.swift in Sources */,
 				59FEC0A7217C840300748882 /* WeatherCell.swift in Sources */,
 				59FEC08D217C717000748882 /* AppDelegate.swift in Sources */,
 				59FEC0A3217C7D5300748882 /* Constants.swift in Sources */,
