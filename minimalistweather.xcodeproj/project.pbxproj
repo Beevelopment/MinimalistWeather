@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5969CD1C21D7FB5C0051B0D2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5969CD1B21D7FB5C0051B0D2 /* Reachability.swift */; };
 		597A12D021CFDDBD00D9AC22 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597A12CF21CFDDBD00D9AC22 /* Location.swift */; };
+		5990351B21D7E86E00123851 /* weatherAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 5990351A21D7E86E00123851 /* weatherAnimation.json */; };
 		59C783AF21D4F25E00F244BA /* SearchLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C783AE21D4F25E00F244BA /* SearchLocationCell.swift */; };
 		59FEC08D217C717000748882 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FEC08C217C717000748882 /* AppDelegate.swift */; };
 		59FEC08F217C717000748882 /* WeatherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FEC08E217C717000748882 /* WeatherController.swift */; };
@@ -23,7 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5969CD1B21D7FB5C0051B0D2 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		597A12CF21CFDDBD00D9AC22 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		5990351A21D7E86E00123851 /* weatherAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weatherAnimation.json; sourceTree = "<group>"; };
 		59C783AE21D4F25E00F244BA /* SearchLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationCell.swift; sourceTree = "<group>"; };
 		59FEC089217C717000748882 /* minimalistweather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = minimalistweather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59FEC08C217C717000748882 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5990351921D7E84100123851 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				5990351A21D7E86E00123851 /* weatherAnimation.json */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		59FEC080217C717000748882 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +87,7 @@
 		59FEC08B217C717000748882 /* minimalistweather */ = {
 			isa = PBXGroup;
 			children = (
+				5990351921D7E84100123851 /* Animation */,
 				59FEC0A5217C83E500748882 /* View */,
 				59FEC0A4217C83E000748882 /* Model */,
 				59FEC09F217C725100748882 /* Util */,
@@ -102,6 +115,7 @@
 				59FEC0A0217C727400748882 /* Extension.swift */,
 				59FEC0A2217C7D5300748882 /* Constants.swift */,
 				597A12CF21CFDDBD00D9AC22 /* Location.swift */,
+				5969CD1B21D7FB5C0051B0D2 /* Reachability.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -202,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59FEC097217C717100748882 /* LaunchScreen.storyboard in Resources */,
+				5990351B21D7E86E00123851 /* weatherAnimation.json in Resources */,
 				59FEC094217C717100748882 /* Assets.xcassets in Resources */,
 				59FEC092217C717000748882 /* Main.storyboard in Resources */,
 			);
@@ -236,10 +251,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-minimalistweather/Pods-minimalistweather-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -261,6 +278,7 @@
 				59FEC0A7217C840300748882 /* WeatherCell.swift in Sources */,
 				59FEC08D217C717000748882 /* AppDelegate.swift in Sources */,
 				59FEC0A3217C7D5300748882 /* Constants.swift in Sources */,
+				5969CD1C21D7FB5C0051B0D2 /* Reachability.swift in Sources */,
 				59FEC0AB217CB4DA00748882 /* ForecastModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

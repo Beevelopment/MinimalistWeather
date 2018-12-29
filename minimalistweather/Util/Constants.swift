@@ -12,8 +12,8 @@ import UIKit
 typealias DownloadComplete = () -> ()
 
 let API_KEY = "a6dacec67af42488b5bcbe45e8c75e06"
-let COORDINATE_URL = "http://api.openweathermap.org/data/2.5/weather?lat=\(Location.sharedInstance.LAT!)&lon=\(Location.sharedInstance.LON!)&appid=\(API_KEY)"
-let COORDINATE_FORECAST_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=\(Location.sharedInstance.LAT!)&lon=\(Location.sharedInstance.LON!)&cnt=10&appid=\(API_KEY)"
+//let COORDINATE_URL = "http://api.openweathermap.org/data/2.5/weather?lat=\(Location.sharedInstance.LAT!)&lon=\(Location.sharedInstance.LON!)&appid=\(API_KEY)"
+//let COORDINATE_FORECAST_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=\(Location.sharedInstance.LAT!)&lon=\(Location.sharedInstance.LON!)&cnt=10&appid=\(API_KEY)"
 
 let rainImgOne = ["proximity moderate rain", "heavy intensity rain", "moderate rain"]
 let rainImgTwo = ["proximity shower rain", "light intensity shower rain"]

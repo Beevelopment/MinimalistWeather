@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 import CoreLocation
 import MapKit
+import Lottie
+import AudioToolbox
 
 class WeatherController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, MKLocalSearchCompleterDelegate {
     
@@ -23,17 +25,26 @@ class WeatherController: UIViewController, UITableViewDelegate, UITableViewDataS
     let searchButton: UIButton = {
         let searchBtn = UIButton(type: .system)
         searchBtn.setImage(#imageLiteral(resourceName: "search"), for: .normal)
-        searchBtn.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        searchBtn.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        searchBtn.widthAnchor.constraint(equalToConstant: 28).isActive = true
+        searchBtn.heightAnchor.constraint(equalToConstant: 28).isActive = true
         
         return searchBtn
     }()
     
+    let updateUIButton: UIButton = {
+        let updateBtn = UIButton(type: .system)
+        updateBtn.setImage(#imageLiteral(resourceName: "update-arrow"), for: .normal)
+        updateBtn.tintColor = .black
+        updateBtn.addTarget(self, action: #selector(refreshButton), for: .touchUpInside)
+        
+        return updateBtn
+    }()
+    
     let gpsButton: UIButton = {
         let gpsBtn = UIButton(type: .system)
-        gpsBtn.setImage(#imageLiteral(resourceName: "paper-plane"), for: .normal)
-        gpsBtn.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        gpsBtn.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        gpsBtn.setImage(#imageLiteral(resourceName: "gps"), for: .normal)
+        gpsBtn.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        gpsBtn.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         return gpsBtn
     }()
@@ -74,6 +85,7 @@ class WeatherController: UIViewController, UITableViewDelegate, UITableViewDataS
         lbl.textAlignment = .center
         lbl.textColor = .black
         lbl.font = UIFont(name: GILL_SANS, size: 21)!
+        lbl.numberOfLines = 0
         
         return lbl
     }()
@@ -83,6 +95,7 @@ class WeatherController: UIViewController, UITableViewDelegate, UITableViewDataS
         lbl.textAlignment = .center
         lbl.textColor = .black
         lbl.font = UIFont(name: GILL_SANS, size: 21)!
+        lbl.numberOfLines = 0
         
         return lbl
     }()
@@ -126,9 +139,20 @@ class WeatherController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         return date
     }()
+    
+    let loadAnimation: LOTAnimationView = {
+        let load = LOTAnimationView()
+        load.setAnimation(named: "weatherAnimation")
+        load.loopAnimation = true
+        load.isHidden = true
+        
+        return load
+    }()
 
     let titleView = UIView()
 
+    let reachability = Reachability()!
+    
     let cellId = "cellID"
     let cityCellId = "cityCellID"
     let currentWeatherModel = CurrentWeatherModel()
@@ -141,8 +165,13 @@ class WeatherController: UIViewController, UITableViewDelegate, UITableViewDataS
     var searchCompleter = MKLocalSearchCompleter()
     var searchResult = [MKLocalSearchCompletion]()
     
+    var LAT: Double?
+    var LON: Double?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupNetworkNotification()
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -224,9 +253,9 @@ class WeatherController: UIViewController, UITableViewDelegate, UITableViewDataS
                 let latitude = response!.boundingRegion.center.latitude
                 let longitude = response!.boundingRegion.center.longitude
 
-                Location.sharedInstance.LAT = latitude
-                Location.sharedInstance.LON = longitude
-
+                self.LAT = latitude
+                self.LON = longitude
+                
                 self.updateWeatherData(LAT: latitude, LON: longitude)
             }
             self.dismissSearch()
@@ -235,10 +264,10 @@ class WeatherController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     @objc func updateCurrentLocation() {
         currentLocation = locationManager.location
-        let LAT = currentLocation.coordinate.latitude
-        let LON = currentLocation.coordinate.longitude
+        LAT = currentLocation.coordinate.latitude
+        LON = currentLocation.coordinate.longitude
 
-        updateWeatherData(LAT: LAT, LON: LON)
+        updateWeatherData(LAT: LAT!, LON: LON!)
     }
     
     func updateWeatherData(LAT: Double, LON: Double) {
@@ -248,8 +277,36 @@ class WeatherController: UIViewController, UITableViewDelegate, UITableViewDataS
         currentWeatherModel.downloadWeatherDetails(url: COORDINATE_URL) {
             self.downloadForecast(url: COORDINATE_FORECAST_URL) {
                 self.updateCurrentWeatherUI()
+                if self.loadAnimation.isAnimationPlaying {
+                    self.stopLoadAnimation()
+                }
             }
         }
+    }
+    
+    @objc func getUserLocation() {
+        vibrate()
+        if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse {
+            updateCurrentLocation()
+        } else {
+            configureLocationService()
+            alertNotification(titel: "Location access denied", message: "To get current and relevant weather information in your area please allow location when in use.")
+        }
+    }
+    
+    @objc func refreshButton() {
+        vibrate()
+        updateWeatherData(LAT: LAT!, LON: LON!)
+    }
+    
+    private func startLoadAnimation() {
+        loadAnimation.isHidden = false
+        loadAnimation.play()
+    }
+    
+    private func stopLoadAnimation() {
+        loadAnimation.stop()
+        loadAnimation.isHidden = true
     }
     
     func downloadForecast(url: String, completed: @escaping DownloadComplete) {
@@ -364,6 +421,8 @@ class WeatherController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == cityTableView {
+            startLoadAnimation()
+            
             let selectedLocation = indexPath.row
             let city = searchResult[selectedLocation]
             searchForCity(cityName: city)
@@ -380,6 +439,7 @@ class WeatherController: UIViewController, UITableViewDelegate, UITableViewDataS
         let halfView = view.frame.width / 2
         
         view.addSubview(backgroundImage)
+        view.addSubview(updateUIButton)
         view.addSubview(weatherIcon)
         view.addSubview(tempetureLabel)
         view.addSubview(locationLabel)
@@ -387,16 +447,21 @@ class WeatherController: UIViewController, UITableViewDelegate, UITableViewDataS
         view.addSubview(weatherTableView)
         view.addSubview(blackView)
         view.addSubview(cityTableView)
+        view.addSubview(loadAnimation)
         
         _ = backgroundImage.anchor(view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        _ = updateUIButton.anchor(view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, topConstant: 8, leftConstant: 20, bottomConstant: 0, rightConstant: 0, widthConstant: 28, heightConstant: 28)
         _ = weatherIcon.anchor(view.safeAreaLayoutGuide.topAnchor, left: nil, bottom: nil, right: view.rightAnchor, topConstant: margin / 2, leftConstant: 0, bottomConstant: 0, rightConstant: margin, widthConstant: imageSize, heightConstant: imageSize)
         _ = tempetureLabel.anchor(weatherIcon.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, topConstant: margin / 2, leftConstant: margin, bottomConstant: 0, rightConstant: 0, widthConstant: tempSize, heightConstant: imageSize)
-        _ = locationLabel.anchor(weatherIcon.bottomAnchor, left: view.leftAnchor, bottom: nil, right: nil, topConstant: margin, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: halfView, heightConstant: 0)
-        _ = weatherTypeLabel.anchor(weatherIcon.bottomAnchor, left: nil, bottom: nil, right: view.rightAnchor, topConstant: margin, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: halfView, heightConstant: 0)
+        _ = locationLabel.anchor(weatherIcon.bottomAnchor, left: view.leftAnchor, bottom: nil, right: nil, topConstant: margin, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: halfView - margin / 2, heightConstant: 0)
+        _ = weatherTypeLabel.anchor(weatherIcon.bottomAnchor, left: nil, bottom: nil, right: view.rightAnchor, topConstant: margin, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: halfView - margin / 2, heightConstant: 0)
         _ = weatherTableView.anchor(locationLabel.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: margin * 1.5, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         _ = blackView.anchor(view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         _ = cityTableView.anchor(view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 200)
         
+        loadAnimation.frame = CGRect(x: view.frame.midX - halfView / 2, y: view.frame.midY - halfView / 2, width: halfView, height: halfView)
+        
+        startLoadAnimation()
         setupNavigationBar()
     }
     
@@ -419,7 +484,52 @@ class WeatherController: UIViewController, UITableViewDelegate, UITableViewDataS
         searchButton.addTarget(self, action: #selector(searchButtonAction), for: .touchUpInside)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: gpsButton)
-        gpsButton.addTarget(self, action: #selector(updateCurrentLocation), for: .touchUpInside)
+        gpsButton.addTarget(self, action: #selector(getUserLocation), for: .touchUpInside)
+        
+    }
+    
+//    Network handeling
+    
+    private func setupNetworkNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
+        do{
+            try reachability.startNotifier()
+        }catch{
+            print("Carl: could not start reachability notifier")
+        }
+    }
+    
+    @objc func reachabilityChanged(note: Notification) {
+        let reachability = note.object as! Reachability
+        
+        switch reachability.connection {
+        case .wifi:
+            print("Carl: Reachable via WiFi")
+        case .cellular:
+            print("Carl: Reachable via Cellular")
+        case .none:
+            print("Carl: Network not reachable")
+            alertNotification(titel: "Lost Connection", message: "To get current and accurate weather data you need to be connected to the internet. Please check your internet connection.")
+        }
+    }
+    
+    func alertNotification(titel: String, message: String) {
+        let alert = UIAlertController(title: titel, message: message, preferredStyle: .alert)
+        let actionAlert = UIAlertAction(title: "Go To Settings", style: .default) { action in
+            guard let settingURL = URL(string: UIApplication.openSettingsURLString) else { return }
+            if UIApplication.shared.canOpenURL(settingURL) {
+                UIApplication.shared.open(settingURL, completionHandler: { (sucess) in
+                    print("Carl: setting opened sucessfully")
+                })
+            }
+        }
+        
+        alert.addAction(actionAlert)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func vibrate() {
+        AudioServicesPlaySystemSound(1519)
     }
 }
 
@@ -437,6 +547,7 @@ extension WeatherController: CLLocationManagerDelegate {
         switch status {
         case .restricted, .denied:
             print("Carl: denied")
+            alertNotification(titel: "Location access denied", message: "To get current and relevant weather information in your area please allow location when in use.")
             break
         case .authorizedWhenInUse:
             updateCurrentLocation()
