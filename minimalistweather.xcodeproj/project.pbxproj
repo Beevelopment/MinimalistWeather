@@ -3,11 +3,40 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57777AD2E6634E09FADB1188 /* Pods_Minimalist_iMessage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9DF015E4585BF5F060045D /* Pods_Minimalist_iMessage.framework */; };
+		59039FA622EB21AB00499D60 /* CurrentWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FEC0A8217C917E00748882 /* CurrentWeatherModel.swift */; };
+		59039FA822EB238600499D60 /* CurrentWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FEC0A8217C917E00748882 /* CurrentWeatherModel.swift */; };
+		59039FAB22EB330F00499D60 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59039FAA22EB330F00499D60 /* Themes.swift */; };
+		59039FAD22EB356400499D60 /* ThemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59039FAC22EB356400499D60 /* ThemeCollectionViewCell.swift */; };
+		59039FAE22EB544D00499D60 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59039FAA22EB330F00499D60 /* Themes.swift */; };
+		59039FB022EC751100499D60 /* WeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59039FAF22EC751100499D60 /* WeatherCollectionViewCell.swift */; };
+		59039FB222EC77A900499D60 /* CurrentWeatherHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59039FB122EC77A900499D60 /* CurrentWeatherHeader.swift */; };
+		59039FB422EC8D4A00499D60 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59039FB322EC8D4900499D60 /* WeatherCell.swift */; };
+		59039FB522EC8D6600499D60 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59039FB322EC8D4900499D60 /* WeatherCell.swift */; };
+		590F1EEF229463E0006298B6 /* InfomationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F1EEE229463E0006298B6 /* InfomationHandler.swift */; };
+		590F1EF622946E72006298B6 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 590F1EF522946E72006298B6 /* NotificationCenter.framework */; };
+		590F1EF922946E72006298B6 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F1EF822946E72006298B6 /* TodayViewController.swift */; };
+		590F1EFC22946E72006298B6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 590F1EFA22946E72006298B6 /* MainInterface.storyboard */; };
+		590F1F0022946E72006298B6 /* WeatherWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 590F1EF422946E72006298B6 /* WeatherWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		590F1F112294781E006298B6 /* WidgetCurrentWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F1F102294781E006298B6 /* WidgetCurrentWeatherModel.swift */; };
+		590F1F1222947BFF006298B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59FEC093217C717100748882 /* Assets.xcassets */; };
+		590F1F1322947C22006298B6 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FEC0A0217C727400748882 /* Extension.swift */; };
+		590F1F1422947C26006298B6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FEC0A2217C7D5300748882 /* Constants.swift */; };
 		5969CD1C21D7FB5C0051B0D2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5969CD1B21D7FB5C0051B0D2 /* Reachability.swift */; };
+		5974491B229ED2FB005892E5 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5974491A229ED2FB005892E5 /* Messages.framework */; };
+		5974491E229ED2FB005892E5 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5974491D229ED2FB005892E5 /* MessagesViewController.swift */; };
+		59744921229ED2FB005892E5 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5974491F229ED2FB005892E5 /* MainInterface.storyboard */; };
+		59744923229ED2FD005892E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59744922229ED2FD005892E5 /* Assets.xcassets */; };
+		59744927229ED2FD005892E5 /* Minimalist iMessage.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 59744919229ED2FB005892E5 /* Minimalist iMessage.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5974492B229ED36F005892E5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FEC0A0217C727400748882 /* Extension.swift */; };
+		5974492C229ED7E5005892E5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FEC0A2217C7D5300748882 /* Constants.swift */; };
+		59744934229EE693005892E5 /* WidgetCurrentWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F1F102294781E006298B6 /* WidgetCurrentWeatherModel.swift */; };
+		59744935229EE803005892E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59FEC093217C717100748882 /* Assets.xcassets */; };
+		59744938229EEC23005892E5 /* ForecastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FEC0AA217CB4DA00748882 /* ForecastModel.swift */; };
 		597A12D021CFDDBD00D9AC22 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597A12CF21CFDDBD00D9AC22 /* Location.swift */; };
 		5990351B21D7E86E00123851 /* weatherAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 5990351A21D7E86E00123851 /* weatherAnimation.json */; };
 		59C783AF21D4F25E00F244BA /* SearchLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C783AE21D4F25E00F244BA /* SearchLocationCell.swift */; };
@@ -18,14 +47,69 @@
 		59FEC097217C717100748882 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59FEC095217C717100748882 /* LaunchScreen.storyboard */; };
 		59FEC0A1217C727400748882 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FEC0A0217C727400748882 /* Extension.swift */; };
 		59FEC0A3217C7D5300748882 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FEC0A2217C7D5300748882 /* Constants.swift */; };
-		59FEC0A7217C840300748882 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FEC0A6217C840300748882 /* WeatherCell.swift */; };
 		59FEC0A9217C917E00748882 /* CurrentWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FEC0A8217C917E00748882 /* CurrentWeatherModel.swift */; };
 		59FEC0AB217CB4DA00748882 /* ForecastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FEC0AA217CB4DA00748882 /* ForecastModel.swift */; };
 		A43042682958AC6B873C5E17 /* Pods_minimalistweather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE5334C3EA699FC486F6705 /* Pods_minimalistweather.framework */; };
+		C4F470EAB3093CC3C11FDB98 /* Pods_WeatherWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4EC701DFE3A0D57B61593C /* Pods_WeatherWidget.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		590F1EFE22946E72006298B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 59FEC081217C717000748882 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 590F1EF322946E72006298B6;
+			remoteInfo = WeatherWidget;
+		};
+		59744925229ED2FD005892E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 59FEC081217C717000748882 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 59744918229ED2FB005892E5;
+			remoteInfo = "Minimalist iMessage";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		590F1F0422946E72006298B6 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				59744927229ED2FD005892E5 /* Minimalist iMessage.appex in Embed App Extensions */,
+				590F1F0022946E72006298B6 /* WeatherWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1C9DF015E4585BF5F060045D /* Pods_Minimalist_iMessage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Minimalist_iMessage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59039FA922EB27B600499D60 /* Minimalist iMessage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Minimalist iMessage.entitlements"; sourceTree = "<group>"; };
+		59039FAA22EB330F00499D60 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
+		59039FAC22EB356400499D60 /* ThemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCollectionViewCell.swift; sourceTree = "<group>"; };
+		59039FAF22EC751100499D60 /* WeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionViewCell.swift; sourceTree = "<group>"; };
+		59039FB122EC77A900499D60 /* CurrentWeatherHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherHeader.swift; sourceTree = "<group>"; };
+		59039FB322EC8D4900499D60 /* WeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
+		590F1EEE229463E0006298B6 /* InfomationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfomationHandler.swift; sourceTree = "<group>"; };
+		590F1EF422946E72006298B6 /* WeatherWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WeatherWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		590F1EF522946E72006298B6 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		590F1EF822946E72006298B6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		590F1EFB22946E72006298B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		590F1EFD22946E72006298B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		590F1F0522946F15006298B6 /* minimalistweather.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = minimalistweather.entitlements; sourceTree = "<group>"; };
+		590F1F0622946F73006298B6 /* WeatherWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeatherWidget.entitlements; sourceTree = "<group>"; };
+		590F1F09229472EF006298B6 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		590F1F102294781E006298B6 /* WidgetCurrentWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCurrentWeatherModel.swift; sourceTree = "<group>"; };
 		5969CD1B21D7FB5C0051B0D2 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		59744919229ED2FB005892E5 /* Minimalist iMessage.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Minimalist iMessage.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5974491A229ED2FB005892E5 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		5974491D229ED2FB005892E5 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		59744920229ED2FB005892E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		59744922229ED2FD005892E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		59744924229ED2FD005892E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		597A12CF21CFDDBD00D9AC22 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5990351A21D7E86E00123851 /* weatherAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weatherAnimation.json; sourceTree = "<group>"; };
 		59C783AE21D4F25E00F244BA /* SearchLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationCell.swift; sourceTree = "<group>"; };
@@ -38,15 +122,37 @@
 		59FEC098217C717100748882 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59FEC0A0217C727400748882 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		59FEC0A2217C7D5300748882 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		59FEC0A6217C840300748882 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		59FEC0A8217C917E00748882 /* CurrentWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherModel.swift; sourceTree = "<group>"; };
 		59FEC0AA217CB4DA00748882 /* ForecastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastModel.swift; sourceTree = "<group>"; };
 		64BBC217EC445AA63A5C828F /* Pods-minimalistweather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-minimalistweather.release.xcconfig"; path = "Pods/Target Support Files/Pods-minimalistweather/Pods-minimalistweather.release.xcconfig"; sourceTree = "<group>"; };
+		92CD7A679936D7FCDFF7B6B4 /* Pods-WeatherWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherWidget/Pods-WeatherWidget.release.xcconfig"; sourceTree = "<group>"; };
 		9DD9DBCC4C992CF85E6F964E /* Pods-minimalistweather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-minimalistweather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-minimalistweather/Pods-minimalistweather.debug.xcconfig"; sourceTree = "<group>"; };
 		9EE5334C3EA699FC486F6705 /* Pods_minimalistweather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_minimalistweather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3691A1B83F762AB1F11D0F0 /* Pods-Minimalist iMessage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minimalist iMessage.release.xcconfig"; path = "Pods/Target Support Files/Pods-Minimalist iMessage/Pods-Minimalist iMessage.release.xcconfig"; sourceTree = "<group>"; };
+		DD4EC701DFE3A0D57B61593C /* Pods_WeatherWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F368231C4D5533100B4A9789 /* Pods-WeatherWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherWidget/Pods-WeatherWidget.debug.xcconfig"; sourceTree = "<group>"; };
+		F82BAF09EB01F32C46367D09 /* Pods-Minimalist iMessage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minimalist iMessage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Minimalist iMessage/Pods-Minimalist iMessage.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		590F1EF122946E72006298B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				590F1EF622946E72006298B6 /* NotificationCenter.framework in Frameworks */,
+				C4F470EAB3093CC3C11FDB98 /* Pods_WeatherWidget.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59744916229ED2FB005892E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5974491B229ED2FB005892E5 /* Messages.framework in Frameworks */,
+				57777AD2E6634E09FADB1188 /* Pods_Minimalist_iMessage.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		59FEC086217C717000748882 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -58,6 +164,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		590F1EF722946E72006298B6 /* WeatherWidget */ = {
+			isa = PBXGroup;
+			children = (
+				590F1F0622946F73006298B6 /* WeatherWidget.entitlements */,
+				590F1EF822946E72006298B6 /* TodayViewController.swift */,
+				590F1EFA22946E72006298B6 /* MainInterface.storyboard */,
+				590F1EFD22946E72006298B6 /* Info.plist */,
+				590F1F102294781E006298B6 /* WidgetCurrentWeatherModel.swift */,
+			);
+			path = WeatherWidget;
+			sourceTree = "<group>";
+		};
+		5974491C229ED2FB005892E5 /* Minimalist iMessage */ = {
+			isa = PBXGroup;
+			children = (
+				59039FA922EB27B600499D60 /* Minimalist iMessage.entitlements */,
+				5974491D229ED2FB005892E5 /* MessagesViewController.swift */,
+				5974491F229ED2FB005892E5 /* MainInterface.storyboard */,
+				59744922229ED2FD005892E5 /* Assets.xcassets */,
+				59744924229ED2FD005892E5 /* Info.plist */,
+			);
+			path = "Minimalist iMessage";
+			sourceTree = "<group>";
+		};
 		5990351921D7E84100123851 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				59FEC08B217C717000748882 /* minimalistweather */,
+				590F1EF722946E72006298B6 /* WeatherWidget */,
+				5974491C229ED2FB005892E5 /* Minimalist iMessage */,
 				59FEC08A217C717000748882 /* Products */,
 				D2B8477F042E636E593BC566 /* Pods */,
 				E00D01FCE4B298E61AE0CF94 /* Frameworks */,
@@ -80,6 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				59FEC089217C717000748882 /* minimalistweather.app */,
+				590F1EF422946E72006298B6 /* WeatherWidget.appex */,
+				59744919229ED2FB005892E5 /* Minimalist iMessage.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,6 +221,7 @@
 		59FEC08B217C717000748882 /* minimalistweather */ = {
 			isa = PBXGroup;
 			children = (
+				590F1F0522946F15006298B6 /* minimalistweather.entitlements */,
 				5990351921D7E84100123851 /* Animation */,
 				59FEC0A5217C83E500748882 /* View */,
 				59FEC0A4217C83E000748882 /* Model */,
@@ -105,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				59FEC08E217C717000748882 /* WeatherController.swift */,
+				590F1EEE229463E0006298B6 /* InfomationHandler.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -116,6 +252,7 @@
 				59FEC0A2217C7D5300748882 /* Constants.swift */,
 				597A12CF21CFDDBD00D9AC22 /* Location.swift */,
 				5969CD1B21D7FB5C0051B0D2 /* Reachability.swift */,
+				59039FAA22EB330F00499D60 /* Themes.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -132,8 +269,11 @@
 		59FEC0A5217C83E500748882 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				59FEC0A6217C840300748882 /* WeatherCell.swift */,
+				59039FB322EC8D4900499D60 /* WeatherCell.swift */,
 				59C783AE21D4F25E00F244BA /* SearchLocationCell.swift */,
+				59039FAC22EB356400499D60 /* ThemeCollectionViewCell.swift */,
+				59039FAF22EC751100499D60 /* WeatherCollectionViewCell.swift */,
+				59039FB122EC77A900499D60 /* CurrentWeatherHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -143,6 +283,10 @@
 			children = (
 				9DD9DBCC4C992CF85E6F964E /* Pods-minimalistweather.debug.xcconfig */,
 				64BBC217EC445AA63A5C828F /* Pods-minimalistweather.release.xcconfig */,
+				F368231C4D5533100B4A9789 /* Pods-WeatherWidget.debug.xcconfig */,
+				92CD7A679936D7FCDFF7B6B4 /* Pods-WeatherWidget.release.xcconfig */,
+				F82BAF09EB01F32C46367D09 /* Pods-Minimalist iMessage.debug.xcconfig */,
+				A3691A1B83F762AB1F11D0F0 /* Pods-Minimalist iMessage.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -150,7 +294,12 @@
 		E00D01FCE4B298E61AE0CF94 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				590F1F09229472EF006298B6 /* Alamofire.framework */,
 				9EE5334C3EA699FC486F6705 /* Pods_minimalistweather.framework */,
+				590F1EF522946E72006298B6 /* NotificationCenter.framework */,
+				DD4EC701DFE3A0D57B61593C /* Pods_WeatherWidget.framework */,
+				5974491A229ED2FB005892E5 /* Messages.framework */,
+				1C9DF015E4585BF5F060045D /* Pods_Minimalist_iMessage.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -158,6 +307,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		590F1EF322946E72006298B6 /* WeatherWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 590F1F0322946E72006298B6 /* Build configuration list for PBXNativeTarget "WeatherWidget" */;
+			buildPhases = (
+				27E983EFCFC096AD68132445 /* [CP] Check Pods Manifest.lock */,
+				590F1EF022946E72006298B6 /* Sources */,
+				590F1EF122946E72006298B6 /* Frameworks */,
+				590F1EF222946E72006298B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WeatherWidget;
+			productName = WeatherWidget;
+			productReference = 590F1EF422946E72006298B6 /* WeatherWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		59744918229ED2FB005892E5 /* Minimalist iMessage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5974492A229ED2FD005892E5 /* Build configuration list for PBXNativeTarget "Minimalist iMessage" */;
+			buildPhases = (
+				E3B15011DAA32BEE5AAB1B67 /* [CP] Check Pods Manifest.lock */,
+				59744915229ED2FB005892E5 /* Sources */,
+				59744916229ED2FB005892E5 /* Frameworks */,
+				59744917229ED2FB005892E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Minimalist iMessage";
+			productName = "Minimalist iMessage";
+			productReference = 59744919229ED2FB005892E5 /* Minimalist iMessage.appex */;
+			productType = "com.apple.product-type.app-extension.messages";
+		};
 		59FEC088217C717000748882 /* minimalistweather */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59FEC09B217C717100748882 /* Build configuration list for PBXNativeTarget "minimalistweather" */;
@@ -167,10 +352,13 @@
 				59FEC086217C717000748882 /* Frameworks */,
 				59FEC087217C717000748882 /* Resources */,
 				8C822D090A438B6F468DB087 /* [CP] Embed Pods Frameworks */,
+				590F1F0422946E72006298B6 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				590F1EFF22946E72006298B6 /* PBXTargetDependency */,
+				59744926229ED2FD005892E5 /* PBXTargetDependency */,
 			);
 			name = minimalistweather;
 			productName = minimalistweather;
@@ -183,12 +371,37 @@
 		59FEC081217C717000748882 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Carl Henningsson";
 				TargetAttributes = {
+					590F1EF322946E72006298B6 = {
+						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.NetworkExtensions.iOS = {
+								enabled = 0;
+							};
+						};
+					};
+					59744918229ED2FB005892E5 = {
+						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					59FEC088217C717000748882 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -206,11 +419,32 @@
 			projectRoot = "";
 			targets = (
 				59FEC088217C717000748882 /* minimalistweather */,
+				590F1EF322946E72006298B6 /* WeatherWidget */,
+				59744918229ED2FB005892E5 /* Minimalist iMessage */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		590F1EF222946E72006298B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				590F1F1222947BFF006298B6 /* Assets.xcassets in Resources */,
+				590F1EFC22946E72006298B6 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59744917229ED2FB005892E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59744923229ED2FD005892E5 /* Assets.xcassets in Resources */,
+				59744935229EE803005892E5 /* Assets.xcassets in Resources */,
+				59744921229ED2FB005892E5 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		59FEC087217C717000748882 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -225,6 +459,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		27E983EFCFC096AD68132445 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WeatherWidget-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		88F9EE5805EF25F6AD03FAB2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -248,44 +504,124 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-minimalistweather/Pods-minimalistweather-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-minimalistweather/Pods-minimalistweather-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-minimalistweather/Pods-minimalistweather-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-minimalistweather/Pods-minimalistweather-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-minimalistweather/Pods-minimalistweather-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3B15011DAA32BEE5AAB1B67 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Minimalist iMessage-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		590F1EF022946E72006298B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				590F1F1322947C22006298B6 /* Extension.swift in Sources */,
+				590F1F112294781E006298B6 /* WidgetCurrentWeatherModel.swift in Sources */,
+				59039FA622EB21AB00499D60 /* CurrentWeatherModel.swift in Sources */,
+				590F1EF922946E72006298B6 /* TodayViewController.swift in Sources */,
+				590F1F1422947C26006298B6 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59744915229ED2FB005892E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5974491E229ED2FB005892E5 /* MessagesViewController.swift in Sources */,
+				5974492B229ED36F005892E5 /* Extension.swift in Sources */,
+				59039FA822EB238600499D60 /* CurrentWeatherModel.swift in Sources */,
+				59744934229EE693005892E5 /* WidgetCurrentWeatherModel.swift in Sources */,
+				59039FB522EC8D6600499D60 /* WeatherCell.swift in Sources */,
+				59744938229EEC23005892E5 /* ForecastModel.swift in Sources */,
+				59039FAE22EB544D00499D60 /* Themes.swift in Sources */,
+				5974492C229ED7E5005892E5 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		59FEC085217C717000748882 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59039FAD22EB356400499D60 /* ThemeCollectionViewCell.swift in Sources */,
 				59FEC0A1217C727400748882 /* Extension.swift in Sources */,
+				59039FB422EC8D4A00499D60 /* WeatherCell.swift in Sources */,
+				59039FAB22EB330F00499D60 /* Themes.swift in Sources */,
 				59FEC08F217C717000748882 /* WeatherController.swift in Sources */,
 				597A12D021CFDDBD00D9AC22 /* Location.swift in Sources */,
 				59FEC0A9217C917E00748882 /* CurrentWeatherModel.swift in Sources */,
 				59C783AF21D4F25E00F244BA /* SearchLocationCell.swift in Sources */,
-				59FEC0A7217C840300748882 /* WeatherCell.swift in Sources */,
+				590F1EEF229463E0006298B6 /* InfomationHandler.swift in Sources */,
 				59FEC08D217C717000748882 /* AppDelegate.swift in Sources */,
+				59039FB222EC77A900499D60 /* CurrentWeatherHeader.swift in Sources */,
 				59FEC0A3217C7D5300748882 /* Constants.swift in Sources */,
 				5969CD1C21D7FB5C0051B0D2 /* Reachability.swift in Sources */,
 				59FEC0AB217CB4DA00748882 /* ForecastModel.swift in Sources */,
+				59039FB022EC751100499D60 /* WeatherCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		590F1EFF22946E72006298B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 590F1EF322946E72006298B6 /* WeatherWidget */;
+			targetProxy = 590F1EFE22946E72006298B6 /* PBXContainerItemProxy */;
+		};
+		59744926229ED2FD005892E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 59744918229ED2FB005892E5 /* Minimalist iMessage */;
+			targetProxy = 59744925229ED2FD005892E5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		590F1EFA22946E72006298B6 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				590F1EFB22946E72006298B6 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		5974491F229ED2FB005892E5 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				59744920229ED2FB005892E5 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		59FEC090217C717000748882 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -305,6 +641,96 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		590F1F0122946E72006298B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F368231C4D5533100B4A9789 /* Pods-WeatherWidget.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = WeatherWidget/WeatherWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S78F86KX36;
+				INFOPLIST_FILE = WeatherWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hc.minimalistweather.WeatherWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		590F1F0222946E72006298B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92CD7A679936D7FCDFF7B6B4 /* Pods-WeatherWidget.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = WeatherWidget/WeatherWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S78F86KX36;
+				INFOPLIST_FILE = WeatherWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hc.minimalistweather.WeatherWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		59744928229ED2FD005892E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F82BAF09EB01F32C46367D09 /* Pods-Minimalist iMessage.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_ENTITLEMENTS = "Minimalist iMessage/Minimalist iMessage.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S78F86KX36;
+				INFOPLIST_FILE = "Minimalist iMessage/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hc.minimalistweather.Minimalist-iMessage";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		59744929229ED2FD005892E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3691A1B83F762AB1F11D0F0 /* Pods-Minimalist iMessage.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_ENTITLEMENTS = "Minimalist iMessage/Minimalist iMessage.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S78F86KX36;
+				INFOPLIST_FILE = "Minimalist iMessage/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hc.minimalistweather.Minimalist-iMessage";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		59FEC099217C717100748882 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -425,7 +851,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9DD9DBCC4C992CF85E6F964E /* Pods-minimalistweather.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = minimalistweather/minimalistweather.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S78F86KX36;
 				INFOPLIST_FILE = minimalistweather/Info.plist;
@@ -436,8 +864,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hc.minimalistweather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -445,7 +873,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 64BBC217EC445AA63A5C828F /* Pods-minimalistweather.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = minimalistweather/minimalistweather.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S78F86KX36;
 				INFOPLIST_FILE = minimalistweather/Info.plist;
@@ -456,14 +886,32 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hc.minimalistweather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		590F1F0322946E72006298B6 /* Build configuration list for PBXNativeTarget "WeatherWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				590F1F0122946E72006298B6 /* Debug */,
+				590F1F0222946E72006298B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5974492A229ED2FD005892E5 /* Build configuration list for PBXNativeTarget "Minimalist iMessage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59744928229ED2FD005892E5 /* Debug */,
+				59744929229ED2FD005892E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		59FEC084217C717000748882 /* Build configuration list for PBXProject "minimalistweather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

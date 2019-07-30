@@ -36,7 +36,13 @@ class ForecastModel {
     init(weatherDict: Dictionary<String, AnyObject>) {
         guard let temp = weatherDict["temp"] as? Dictionary<String, AnyObject> else { return }
         guard let day = temp["day"] as? Double else { return }
-        self._currentTemp = round(day - 273.15)
+        if let temp = userSuitDefaults?.bool(forKey: "isFahrenheit") {
+            if temp == true {
+                self._currentTemp = kelvinToFahrenheit(kelvin: day)
+            } else if temporaryPrefix == false {
+                self._currentTemp = kelvinToCelsius(kelvin: day)
+            }
+        }
         
         guard let weatherType = weatherDict["weather"] as? [Dictionary<String, AnyObject>] else { return }
         guard let main = weatherType[0]["description"] as? String else { return }

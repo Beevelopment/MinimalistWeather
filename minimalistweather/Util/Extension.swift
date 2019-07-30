@@ -9,6 +9,16 @@
 import Foundation
 import UIKit
 
+func kelvinToCelsius(kelvin: Double) -> Double {
+    let celsiusDouble = kelvin - 273.15
+    return celsiusDouble
+}
+
+func kelvinToFahrenheit(kelvin: Double) -> Double {
+    let fahrenheitDouble = kelvin * (9/5) - 459.67
+    return fahrenheitDouble
+}
+
 extension Date {
     func dayOfTheWeek() -> String {
         let dateFormatter = DateFormatter()

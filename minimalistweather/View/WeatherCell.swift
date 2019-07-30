@@ -48,8 +48,17 @@ class WeatherCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
+    private func setupColors() {
+        dayLabel.textColor = Themes.currentTheme.textColor
+        dateLabel.textColor = Themes.currentTheme.textColor
+        tempetureLabel.textColor = Themes.currentTheme.textColor
+        weatherImageView.tintColor = Themes.currentTheme.textColor
+    }
+    
     func setupCell(forecast: ForecastModel) {
+        setupColors()
         backgroundColor = .clear
+        selectionStyle = .none
         
         let margin = frame.width / 10
         let imgSize = frame.height / 10 * 8
@@ -67,48 +76,23 @@ class WeatherCell: UITableViewCell {
         let result = formatter.string(from: date)
         dateLabel.text = result
         
-        print("Carl: \(forecast.weatherType)")
-        
-        tempetureLabel.text = "\(Int(forecast.currentTemp))°"
-        
-        var imageName: String!
-        
-        if rainImgOne.contains(forecast.weatherType.lowercased()) {
-            imageName = "rainImgOne"
-            weatherImageView.image = UIImage(named: imageName)
-        } else if rainImgTwo.contains(forecast.weatherType.lowercased()) {
-            imageName = "rainImgTwo"
-            weatherImageView.image = UIImage(named: imageName)
-        } else if rainImgThree.contains(forecast.weatherType.lowercased()) {
-            imageName = "rainImgThree"
-            weatherImageView.image = UIImage(named: imageName)
-        } else if thunderStormImgOne.contains(forecast.weatherType.lowercased()) {
-            imageName = "thunderStormImgOne"
-            weatherImageView.image = UIImage(named: imageName)
-        } else if thunderStormImgTwo.contains(forecast.weatherType.lowercased()) {
-            imageName = "thunderStormImgTwo"
-            weatherImageView.image = UIImage(named: imageName)
-        } else if cloudsImgOne.contains(forecast.weatherType.lowercased()) {
-            imageName = "cloudsImgOne"
-            weatherImageView.image = UIImage(named: imageName)
-        } else if cloudImgTwo.contains(forecast.weatherType.lowercased()) {
-            imageName = "cloudImgTwo"
-            weatherImageView.image = UIImage(named: imageName)
-        } else if snowImgOne.contains(forecast.weatherType.lowercased()) {
-            imageName = "snowImgOne"
-            weatherImageView.image = UIImage(named: imageName)
-        } else if mistImgOne.contains(forecast.weatherType.lowercased()) {
-            imageName = "mistImgOne"
-            weatherImageView.image = UIImage(named: imageName)
-        } else if clearImgOne.contains(forecast.weatherType.lowercased()) {
-            imageName = "clearImgOne"
-            weatherImageView.image = UIImage(named: imageName)
+        if !temporaryPrefix {
+            tempetureLabel.text = "\(Int(forecast.currentTemp))°C"
+        } else {
+            tempetureLabel.text = "\(Int(forecast.currentTemp))°F"
         }
         
-        addSubview(dayLabel)
-        addSubview(dateLabel)
-        addSubview(weatherImageView)
-        addSubview(tempetureLabel)
+        let weatherTypes = [rainImgOne, rainImgTwo, rainImgThree, thunderStormImgOne, thunderStormImgTwo, cloudsImgOne, cloudImgTwo, clearImgOne, snowImgOne, mistImgOne]
+        let weatherTypesImages = ["rainImgOne", "rainImgTwo", "rainImgThree", "thunderStormImgOne", "thunderStormImgTwo", "cloudsImgOne", "cloudImgTwo", "clearImgOne", "snowImgOne", "mistImgOne"]
+        
+        for weatherType in weatherTypes {
+            let index = weatherTypes.firstIndex(of: weatherType)
+            if weatherType.contains(forecast.weatherType.lowercased()) {
+                weatherImageView.image = UIImage(named: weatherTypesImages[index!])?.withRenderingMode(.alwaysTemplate)
+            }
+        }
+        
+        [dayLabel, dateLabel, weatherImageView, tempetureLabel].forEach {( addSubview($0) )}
         
         _ = dayLabel.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil, topConstant: 0, leftConstant: margin, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         _ = dateLabel.anchor(nil, left: dayLabel.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)

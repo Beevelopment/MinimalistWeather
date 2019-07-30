@@ -25,8 +25,13 @@ class SearchLocationCell: UITableViewCell {
         return d
     }()
     
+    private func setupColors() {
+        backgroundColor = Themes.currentTheme.backgroundColor
+        location.textColor = Themes.currentTheme.textColor
+    }
+    
     func setupCell(locationText: String) {
-        backgroundColor = .white
+        setupColors()
         
         location.text = locationText
         

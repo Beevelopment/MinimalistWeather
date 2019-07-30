@@ -12,8 +12,6 @@ import UIKit
 typealias DownloadComplete = () -> ()
 
 let API_KEY = "a6dacec67af42488b5bcbe45e8c75e06"
-//let COORDINATE_URL = "http://api.openweathermap.org/data/2.5/weather?lat=\(Location.sharedInstance.LAT!)&lon=\(Location.sharedInstance.LON!)&appid=\(API_KEY)"
-//let COORDINATE_FORECAST_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=\(Location.sharedInstance.LAT!)&lon=\(Location.sharedInstance.LON!)&cnt=10&appid=\(API_KEY)"
 
 let rainImgOne = ["proximity moderate rain", "heavy intensity rain", "moderate rain"]
 let rainImgTwo = ["proximity shower rain", "light intensity shower rain"]
@@ -36,3 +34,9 @@ let GILL_SANS_SEMIBOLD = "GillSans-SemiBold"
 let GILL_SANS_SEMIBOLD_ITALIC = "GillSans-SemiBoldItalic"
 let GILL_SANS_ULTRABOLD = "GillSans-UltraBold"
 let GILL_SANS = "GillSans"
+
+var temporaryPrefix = false
+let isFahrenheit = UserDefaults.standard.bool(forKey: "isFahrenheit")
+let userSuitDefaults = UserDefaults(suiteName: "group.com.hc.weatherwidget")
+
+let currentThemeDefault = UserDefaults.standard.object(forKey: "Theme")
