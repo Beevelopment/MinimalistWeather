@@ -67,7 +67,6 @@ class CurrentWeatherModel {
             let result = response.result
             
             if let dict = result.value as? Dictionary<String, AnyObject> {
-                print("Carl: Result -> \(dict)")
                 
 //                city name
                 guard let name = dict["name"] as? String else { return }

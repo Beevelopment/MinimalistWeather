@@ -8,7 +8,22 @@
 
 import UIKit
 
+protocol CollectionViewHeaderDelegate {
+    func updateUI(cell: CurrentWeatherHeader)
+}
+
 class CurrentWeatherHeader: UICollectionReusableView {
+    
+    var delegate: CollectionViewHeaderDelegate?
+    
+    let updateUIButton: UIButton = {
+        let updateBtn = UIButton(type: .system)
+        updateBtn.setImage(UIImage(named: "update-arrow")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        updateBtn.tintColor = .black
+        updateBtn.addTarget(self, action: #selector(updateButtonAction), for: .touchUpInside)
+        
+        return updateBtn
+    }()
 
     let weatherIcon: UIImageView = {
         let weatherImg = UIImageView()
@@ -20,7 +35,7 @@ class CurrentWeatherHeader: UICollectionReusableView {
     let tempetureLabel: UILabel = {
         let lbl = UILabel()
         lbl.font = UIFont(name: GILL_SANS_SEMIBOLD, size: 70)!
-        lbl.textAlignment = .center
+        lbl.textAlignment = .right
         lbl.adjustsFontSizeToFitWidth = true
 
         return lbl
@@ -28,9 +43,9 @@ class CurrentWeatherHeader: UICollectionReusableView {
 
     let locationLabel: UILabel = {
         let lbl = UILabel()
-        lbl.textAlignment = .center
+        lbl.textAlignment = .left
         lbl.font = UIFont(name: GILL_SANS_BOLD, size: 21)!
-        lbl.numberOfLines = 0
+        lbl.adjustsFontSizeToFitWidth = true
 
         return lbl
     }()
@@ -39,7 +54,7 @@ class CurrentWeatherHeader: UICollectionReusableView {
         let lbl = UILabel()
         lbl.textAlignment = .center
         lbl.font = UIFont(name: GILL_SANS_BOLD, size: 21)!
-        lbl.numberOfLines = 0
+        lbl.adjustsFontSizeToFitWidth = true
 
         return lbl
     }()
@@ -81,8 +96,13 @@ class CurrentWeatherHeader: UICollectionReusableView {
         setupHeader()
     }
     
+    @objc private func updateButtonAction() {
+        delegate?.updateUI(cell: self)
+    }
+    
     private func setupColors() {
         backgroundColor = Themes.currentTheme.backgroundColor
+        updateUIButton.tintColor = Themes.currentTheme.textColor
         weatherIcon.tintColor = Themes.currentTheme.textColor
         tempetureLabel.textColor = Themes.currentTheme.textColor
         locationLabel.textColor = Themes.currentTheme.textColor
@@ -109,14 +129,15 @@ class CurrentWeatherHeader: UICollectionReusableView {
         
         let sunRiseTimestamp = Date(timeIntervalSince1970: currentWeather.sunRise)
         let sunSetTimestamp = Date(timeIntervalSince1970: currentWeather.sunSet)
-        let calender = Calendar.current
-        let sunRiseHour = calender.component(.hour, from: sunRiseTimestamp)
-        let sunRiseMinutes = calender.component(.minute, from: sunRiseTimestamp)
-        let sunSetHour = calender.component(.hour, from: sunSetTimestamp)
-        let sunSetMinutes = calender.component(.minute, from: sunSetTimestamp)
         
-        sunRiseLabel.text = "Sunrise: \(sunRiseHour):\(sunRiseMinutes)"
-        sunSetLabel.text = "Sunset: \(sunSetHour):\(sunSetMinutes)"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:MM"
+        
+        let sunRiseString = dateFormatter.string(from: sunRiseTimestamp)
+        let sunSetString = dateFormatter.string(from: sunSetTimestamp)
+        
+        sunRiseLabel.text = "Sunrise: \(sunRiseString)"
+        sunSetLabel.text = "Sunset: \(sunSetString)"
 
         locationLabel.text = currentWeather.cityName
         weatherTypeLabel.text = currentWeather.weatherType.capitalized
@@ -138,14 +159,15 @@ class CurrentWeatherHeader: UICollectionReusableView {
         let tempSize = margin * 3
         let halfView = frame.width / 2
 
-        [weatherIcon, tempetureLabel, locationLabel, weatherTypeLabel, maxTempLabel, minTempLabel, sunRiseLabel, sunSetLabel].forEach { addSubview($0) }
+        [updateUIButton, weatherIcon, tempetureLabel, locationLabel, weatherTypeLabel, maxTempLabel, minTempLabel, sunRiseLabel, sunSetLabel].forEach { addSubview($0) }
 
+        _ = updateUIButton.anchor(topAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: 10, leftConstant: 20, bottomConstant: 0, rightConstant: 0, widthConstant: 28, heightConstant: 28)
         _ = weatherIcon.anchor(topAnchor, left: nil, bottom: nil, right: rightAnchor, topConstant: margin / 2, leftConstant: 0, bottomConstant: 0, rightConstant: margin, widthConstant: imageSize, heightConstant: imageSize)
         _ = tempetureLabel.anchor(weatherIcon.topAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: margin / 2, leftConstant: margin, bottomConstant: 0, rightConstant: 0, widthConstant: tempSize, heightConstant: imageSize)
-        _ = locationLabel.anchor(weatherIcon.bottomAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: margin, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: halfView - margin / 2, heightConstant: 0)
-        _ = weatherTypeLabel.anchor(weatherIcon.bottomAnchor, left: nil, bottom: nil, right: rightAnchor, topConstant: margin, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: halfView - margin / 2, heightConstant: 0)
-        _ = maxTempLabel.anchor(locationLabel.bottomAnchor, left: locationLabel.leftAnchor, bottom: nil, right: nil, topConstant: margin / 2, leftConstant: margin, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
-        _ = minTempLabel.anchor(maxTempLabel.topAnchor, left: nil, bottom: nil, right: weatherTypeLabel.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: margin, widthConstant: 0, heightConstant: 0)
+        _ = locationLabel.anchor(weatherIcon.bottomAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: margin, leftConstant: 20, bottomConstant: 0, rightConstant: 0, widthConstant: (halfView - margin / 2) - 20, heightConstant: 0)
+        _ = weatherTypeLabel.anchor(weatherIcon.bottomAnchor, left: nil, bottom: nil, right: rightAnchor, topConstant: margin, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: (halfView - margin / 2) - 20, heightConstant: 0)
+        _ = maxTempLabel.anchor(locationLabel.bottomAnchor, left: locationLabel.leftAnchor, bottom: nil, right: nil, topConstant: margin / 2, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        _ = minTempLabel.anchor(maxTempLabel.topAnchor, left: nil, bottom: nil, right: weatherTypeLabel.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 20, widthConstant: 0, heightConstant: 0)
         _ = sunRiseLabel.anchor(maxTempLabel.bottomAnchor, left: maxTempLabel.leftAnchor, bottom: nil, right: nil, topConstant: margin / 4, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         _ = sunSetLabel.anchor(sunRiseLabel.topAnchor, left: nil, bottom: nil, right: minTempLabel.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
     }

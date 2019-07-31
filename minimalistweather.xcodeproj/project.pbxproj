@@ -223,10 +223,10 @@
 			children = (
 				590F1F0522946F15006298B6 /* minimalistweather.entitlements */,
 				5990351921D7E84100123851 /* Animation */,
-				59FEC0A5217C83E500748882 /* View */,
 				59FEC0A4217C83E000748882 /* Model */,
 				59FEC09F217C725100748882 /* Util */,
 				59FEC09E217C724600748882 /* Controller */,
+				59FEC0A5217C83E500748882 /* View */,
 				59FEC08C217C717000748882 /* AppDelegate.swift */,
 				59FEC090217C717000748882 /* Main.storyboard */,
 				59FEC093217C717100748882 /* Assets.xcassets */,
@@ -694,7 +694,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S78F86KX36;
 				INFOPLIST_FILE = "Minimalist iMessage/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -717,7 +717,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S78F86KX36;
 				INFOPLIST_FILE = "Minimalist iMessage/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

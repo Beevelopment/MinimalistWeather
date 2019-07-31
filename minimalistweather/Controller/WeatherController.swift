@@ -13,6 +13,7 @@ import MapKit
 import Lottie
 import AudioToolbox
 import DeviceKit
+import StoreKit
 
 class WeatherController: UIViewController, UITextFieldDelegate, MKLocalSearchCompleterDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -23,15 +24,6 @@ class WeatherController: UIViewController, UITextFieldDelegate, MKLocalSearchCom
         searchBtn.heightAnchor.constraint(equalToConstant: 28).isActive = true
         
         return searchBtn
-    }()
-    
-    let updateUIButton: UIButton = {
-        let updateBtn = UIButton(type: .system)
-        updateBtn.setImage(UIImage(named: "update-arrow")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        updateBtn.tintColor = .black
-        updateBtn.addTarget(self, action: #selector(refreshButton), for: .touchUpInside)
-        
-        return updateBtn
     }()
     
     let gpsButton: UIButton = {
@@ -91,7 +83,8 @@ class WeatherController: UIViewController, UITextFieldDelegate, MKLocalSearchCom
     
     let date: UILabel = {
         let date = UILabel()
-        date.font = UIFont(name: GILL_SANS, size: 21)!
+        date.text = "Today"
+        date.font = UIFont(name: GILL_SANS_BOLD, size: 24)!
         date.textAlignment = .center
         
         return date
@@ -196,6 +189,22 @@ class WeatherController: UIViewController, UITextFieldDelegate, MKLocalSearchCom
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(changeTemp))
         tapGestureRecognizer.numberOfTapsRequired = 2
         view.addGestureRecognizer(tapGestureRecognizer)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.askForReview()
+        }
+    }
+    
+    private func askForReview() {
+        let userDefault = UserDefaults.standard.integer(forKey: "numberOfTimeUsed")
+        let newCount = userDefault + 1
+        
+        if userDefault == 4 || userDefault == 14 {
+            UserDefaults.standard.set(newCount, forKey: "numberOfTimeUsed")
+            SKStoreReviewController.requestReview()
+        } else {
+            UserDefaults.standard.set(newCount, forKey: "numberOfTimeUsed")
+        }
     }
     
     private func registerCells() {
@@ -340,7 +349,8 @@ class WeatherController: UIViewController, UITextFieldDelegate, MKLocalSearchCom
         }
     }
     
-    @objc func refreshButton() {
+    func refreshButton() {
+        print("Carl: it works")
         vibrate()
         updateWeatherData(LAT: LAT!, LON: LON!, temp: temporaryPrefix)
     }
@@ -370,17 +380,6 @@ class WeatherController: UIViewController, UITextFieldDelegate, MKLocalSearchCom
             }
             completed()
         }
-    }
-    
-    private func getTodaysDate() -> String {
-        let date = Date()
-        let formatter = DateFormatter()
-        
-        formatter.dateFormat = "d MMM, yyyy"
-        
-        let result = formatter.string(from: date)
-        
-        return result
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -432,7 +431,7 @@ class WeatherController: UIViewController, UITextFieldDelegate, MKLocalSearchCom
         weatherCollectionView.backgroundColor = Themes.currentTheme.backgroundColor
         searchButton.tintColor = Themes.currentTheme.textColor
         gpsButton.tintColor = Themes.currentTheme.textColor
-        updateUIButton.tintColor = Themes.currentTheme.textColor
+//        updateUIButton.tintColor = Themes.currentTheme.textColor
         searchField.textColor = Themes.currentTheme.textColor
         cityTableView.backgroundColor = Themes.currentTheme.backgroundColor
         date.textColor = Themes.currentTheme.textColor
@@ -450,9 +449,9 @@ class WeatherController: UIViewController, UITextFieldDelegate, MKLocalSearchCom
         
         let halfView = view.frame.width / 2
         
-        [weatherCollectionView, updateUIButton, informationButton, themeCollectionView, blackView, cityTableView, loadAnimation].forEach({ view.addSubview($0) })
+        [weatherCollectionView, informationButton, themeCollectionView, blackView, cityTableView, loadAnimation].forEach({ view.addSubview($0) })
 
-        _ = updateUIButton.anchor(view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, topConstant: 8, leftConstant: 20, bottomConstant: 0, rightConstant: 0, widthConstant: 28, heightConstant: 28)
+//        _ = updateUIButton.anchor(view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, topConstant: 8, leftConstant: 20, bottomConstant: 0, rightConstant: 0, widthConstant: 28, heightConstant: 28)
         _ = weatherCollectionView.anchor(view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width, heightConstant: 0)
         _ = informationButton.anchor(nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: nil, topConstant: 0, leftConstant: 20, bottomConstant: 20, rightConstant: 0, widthConstant: 50, heightConstant: 50)
         themeCollectionView.frame = CGRect(x: view.frame.width - 90, y: view.frame.height - 70, width: 90, height: 70)
@@ -473,7 +472,6 @@ class WeatherController: UIViewController, UITextFieldDelegate, MKLocalSearchCom
         
         //place title
         titleView.frame = CGRect(x: 60, y: 0, width: view.frame.width - 120, height: 35)
-        date.text = getTodaysDate()
         
         date.frame = titleView.bounds
         titleView.addSubview(date)
@@ -546,7 +544,6 @@ extension WeatherController: CLLocationManagerDelegate {
         
         switch status {
         case .restricted, .denied:
-            print("Carl: denied")
             alertNotification(titel: "Location access denied", message: "To get current and relevant weather information in your area please allow location when in use.")
             break
         case .authorizedWhenInUse:
@@ -564,12 +561,16 @@ extension WeatherController: CLLocationManagerDelegate {
     }
 }
 
-extension WeatherController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
+extension WeatherController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource, CollectionViewHeaderDelegate {
+    func updateUI(cell: CurrentWeatherHeader) {
+        refreshButton()
+    }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if collectionView == weatherCollectionView {
             if let header = weatherCollectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as? CurrentWeatherHeader {
                 header.updateCurrentWeatherUI(currentWeather: currentWeatherModel, temp: temporaryPrefix)
+                header.delegate = self
                 return header
             }
         }
@@ -592,7 +593,7 @@ extension WeatherController: UICollectionViewDelegateFlowLayout, UICollectionVie
         if collectionView == themeCollectionView {
             return themeColors.count
         } else if collectionView == weatherCollectionView {
-            return forecasts.count
+            return forecasts.count - 1
         } else {
             return 0
         }
@@ -612,7 +613,7 @@ extension WeatherController: UICollectionViewDelegateFlowLayout, UICollectionVie
                 return cell
             }
         } else if collectionView == weatherCollectionView {
-            let forcast = forecasts[item]
+            let forcast = forecasts[item + 1]
             if let cell = weatherCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? WeatherCollectionViewCell {
                 cell.setupCell(forecast: forcast)
                 return cell

@@ -12,16 +12,15 @@ class WeatherCollectionViewCell: UICollectionViewCell {
     
     let dayLabel: UILabel = {
         let lbl = UILabel()
-        lbl.text = "Suturday"
         lbl.font = UIFont(name: GILL_SANS, size: 30)!
         lbl.textColor = .black
+        lbl.adjustsFontSizeToFitWidth = true
         
         return lbl
     }()
     
     let dateLabel: UILabel = {
         let lbl = UILabel()
-        lbl.text = "22 Oct, 2018"
         lbl.font = UIFont(name: GILL_SANS, size: 12)!
         lbl.textColor = .black
         
@@ -30,7 +29,6 @@ class WeatherCollectionViewCell: UICollectionViewCell {
     
     let tempetureLabel: UILabel = {
         let lbl = UILabel()
-        lbl.text = "24°"
         lbl.font = UIFont(name: GILL_SANS, size: 30)!
         lbl.textColor = .black
         
@@ -45,6 +43,7 @@ class WeatherCollectionViewCell: UICollectionViewCell {
     }()
     
     private func setupColors() {
+        backgroundColor = .clear
         dayLabel.textColor = Themes.currentTheme.textColor
         dateLabel.textColor = Themes.currentTheme.textColor
         tempetureLabel.textColor = Themes.currentTheme.textColor
@@ -53,9 +52,7 @@ class WeatherCollectionViewCell: UICollectionViewCell {
     
     func setupCell(forecast: ForecastModel) {
         setupColors()
-        backgroundColor = .clear
         
-        let margin = frame.width / 10
         let imgSize = frame.height / 10 * 8
         
         let unixConvertedDate = Date(timeIntervalSince1970: forecast.date)
@@ -89,10 +86,10 @@ class WeatherCollectionViewCell: UICollectionViewCell {
         
         [dayLabel, dateLabel, weatherImageView, tempetureLabel].forEach {( addSubview($0) )}
         
-        _ = dayLabel.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil, topConstant: 0, leftConstant: margin, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        _ = dayLabel.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil, topConstant: 0, leftConstant: 20, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         _ = dateLabel.anchor(nil, left: dayLabel.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
-        _ = weatherImageView.anchor(topAnchor, left: nil, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: margin, widthConstant: imgSize, heightConstant: imgSize)
-        _ = tempetureLabel.anchor(topAnchor, left: nil, bottom: bottomAnchor, right: weatherImageView.leftAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: margin / 2, widthConstant: 0, heightConstant: 0)
+        _ = weatherImageView.anchor(topAnchor, left: nil, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 20, widthConstant: imgSize, heightConstant: imgSize)
+        _ = tempetureLabel.anchor(topAnchor, left: nil, bottom: bottomAnchor, right: weatherImageView.leftAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 10, widthConstant: 0, heightConstant: 0)
     }
     
     override init(frame: CGRect) {
